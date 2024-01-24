@@ -2,15 +2,7 @@ import { Item } from "@/components/input-node";
 import { currentlySelectedNodeIdAtom } from "@/utils/atoms";
 import { isAncestor } from "@/utils/nodes";
 import { useAtom } from "jotai";
-import {
-  Edge,
-  Handle,
-  MarkerType,
-  Node,
-  NodeProps,
-  Position,
-  useReactFlow,
-} from "reactflow";
+import { Edge, Handle, MarkerType, Node, NodeProps, Position } from "reactflow";
 
 type StandardNodeData = {
   id: string;
@@ -20,7 +12,7 @@ type StandardNodeData = {
 };
 
 export default function StandardNode(props: NodeProps<StandardNodeData>) {
-  const { setViewport, getViewport } = useReactFlow();
+  // const { setViewport, getViewport } = useReactFlow();
 
   const [currentlySelectedNodeId, setCurrentlySelectedNodeId] = useAtom(
     currentlySelectedNodeIdAtom,
@@ -135,13 +127,13 @@ export default function StandardNode(props: NodeProps<StandardNodeData>) {
         return updatedEdges.concat(createEdges(_nodes));
       });
 
-      const viewport = getViewport();
+      // const viewport = getViewport();
 
-      setViewport({
-        x: viewport.x - 500,
-        y: viewport.y,
-        zoom: viewport.zoom,
-      });
+      // setViewport({
+      //   x: viewport.x - 500,
+      //   y: viewport.y,
+      //   zoom: viewport.zoom,
+      // });
     } catch (error) {
       console.error(error);
       alert(error);
