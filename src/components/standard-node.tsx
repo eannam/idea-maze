@@ -131,7 +131,10 @@ export default function StandardNode(props: NodeProps<StandardNodeData>) {
   };
 
   return (
-    <div className="max-w-96  bg-transparent p-8" onClick={handleClick}>
+    <div
+      className="max-w-96 cursor-pointer bg-transparent px-4 py-2"
+      onClick={handleClick}
+    >
       <div
         className={`break-words font-serif text-xs  ${isHighlighted ? "text-orange-900" : "text-orange-300"}`}
       >
