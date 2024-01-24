@@ -64,6 +64,28 @@ const upsertEmbedding = async (text: string, embedding: string) => {
   }
 };
 
+const incrementClickCount = async (id: string) => {
+  try {
+    const result = await sql`
+      UPDATE embeddings
+      SET click_count = click_count + 1
+      WHERE id = ${id}
+      RETURNING id, text, embedding;
+    `;
+
+    if (!result.length) return null;
+
+    return {
+      id: result[0].id,
+      text: result[0].text,
+      embedding: result[0].embedding,
+    };
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
 const getNearestNeighbours = async (
   text: string,
   embedding: string,
@@ -88,6 +110,7 @@ const db = {
   getEmbeddingByText,
   getEmbeddingById,
   upsertEmbedding,
+  incrementClickCount,
   getNearestNeighbours,
 };
 

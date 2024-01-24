@@ -26,7 +26,10 @@ export default function InfoModal({
             This website was built using NextJS, ReactFlow, NeonDB, and OpenAI
             embeddings.
           </p>
-          <p>Have fun!</p>
+          <p>
+            I don&apos;t filter user input so you might see some occasional
+            unsavoury content. Have fun!
+          </p>
         </div>
         <button
           className="p-2 text-orange-500 underline-offset-2 hover:underline"

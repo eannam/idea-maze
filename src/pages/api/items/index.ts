@@ -27,7 +27,7 @@ export default async function handler(
         return res.status(400).json({ message: "Missing id" });
       }
 
-      const record = await db.getEmbeddingById(id);
+      const record = await db.incrementClickCount(id);
 
       if (!record) {
         return res.status(404).json({ message: "Embedding not found" });

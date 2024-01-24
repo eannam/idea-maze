@@ -18,8 +18,28 @@ const getTextEmbedding = async (text: string) => {
   }
 };
 
+const generateIdea = async () => {
+  try {
+    const prompt =
+      "Generate an interesting and novel idea for a new startup. Keep the description to one or two sentences and do not make up company names, just describe what the company does.\n\nIdea:";
+
+    const response = await openai.completions.create({
+      model: "gpt-3.5-turbo-instruct",
+      prompt,
+      temperature: 0.9,
+      max_tokens: 75,
+    });
+    const text = response.choices[0].text.trim();
+    return text;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
 const openaiService = {
   getTextEmbedding,
+  generateIdea,
 };
 
 export default openaiService;
