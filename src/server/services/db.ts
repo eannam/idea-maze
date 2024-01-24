@@ -106,12 +106,36 @@ const getNearestNeighbours = async (
   }
 };
 
+const getMostClicked = async (numberOfItems: number) => {
+  try {
+    const result = await sql`
+      SELECT id, text, click_count
+      FROM embeddings
+      ORDER BY click_count DESC
+      LIMIT ${numberOfItems};
+    `;
+
+    const items = result.map((item) => {
+      return {
+        id: item.id,
+        text: item.text,
+        clickCount: item.click_count,
+      };
+    });
+    return items;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+};
+
 const db = {
   getEmbeddingByText,
   getEmbeddingById,
   upsertEmbedding,
   incrementClickCount,
   getNearestNeighbours,
+  getMostClicked,
 };
 
 export default db;

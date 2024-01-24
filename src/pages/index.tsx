@@ -2,7 +2,11 @@ import InfoModal from "@/components/info-modal";
 import InputNode from "@/components/input-node";
 import ResetButton from "@/components/reset-button";
 import StandardNode from "@/components/standard-node";
-import { IconBrandGithub, IconInfoCircle } from "@tabler/icons-react";
+import {
+  IconBrandGithub,
+  IconChartBar,
+  IconInfoCircle,
+} from "@tabler/icons-react";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import ReactFlow, {
@@ -64,6 +68,9 @@ export default function Home() {
           <button onClick={() => setInfoModalIsOpen(true)}>
             <IconInfoCircle className="text-orange-500" />
           </button>
+          <Link href={"/most-clicked"}>
+            <IconChartBar className="text-orange-500" />
+          </Link>
           <Link href={"https://github.com/eannam/idea-maze"} target="_blank">
             <IconBrandGithub className="text-orange-500" />
           </Link>
