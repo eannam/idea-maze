@@ -9,8 +9,14 @@ const NUMBER_OF_NEIGHBOURS = 5;
 const schema = z.object({
   text: z
     .string()
-    .min(10, { message: "Input must be at least 10 characters." })
-    .max(300, { message: "Input can be no more than 300 characters." }),
+    .min(10, {
+      message:
+        "New ideas must be longer than 10 characters. You can do it, I believe in you!",
+    })
+    .max(300, {
+      message:
+        "New ideas must be shorter than 300 characters. Keep it short and simple!",
+    }),
 });
 
 export default async function handler(
