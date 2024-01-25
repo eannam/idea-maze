@@ -1,6 +1,8 @@
 
 # Idea Maze
 
+Live website [here](https://idea-maze.com).
+
 This website provides a fun and intiuitive interface for exploring ideas submitted by other users.
 Emebeddings for user inputs are retrieved using the OpenAI API and stored in a Neon Postgres database.
 The node based interface was built using [React Flow](https://reactflow.dev).
